@@ -1,0 +1,20 @@
+class Solution {
+    boolean areKAnagrams(String s1, String s2, int k) {
+        if(s1.length()!=s2.length()) return false;
+        int [] f1=new int[26];
+        int [] f2=new int[26];
+        int count=0;
+        for(int idx=0;idx<s1.length();idx++){
+            int ch1=s1.charAt(idx);
+            f1[ch-'a']++;
+            int ch2=s2.charAt(idx);
+            f2[ch2-'a']++;
+        }
+        for(int idx=0;idx<s1.length();idx++){
+            int ch=s1.charAt(idx);
+            if(f1[ch-'a']!=f2[ch-'a']) count++;
+        }
+        if(k>=count) return true;
+        else return false;
+    }
+}
